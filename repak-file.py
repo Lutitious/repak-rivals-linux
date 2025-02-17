@@ -9,6 +9,7 @@ def initializeScript():
     result = checkRepakInstalled()
     if str(result) == "None":
         installRepak()
+        main()
     else:
         formattedVersion = str(result).split(" ")[1].split("\\n")[0]
         print("Repak installed. Version: " + formattedVersion)
