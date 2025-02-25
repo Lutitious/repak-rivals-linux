@@ -1,7 +1,7 @@
 #!/usr/bin/env python
-import subprocess, requests, sys, getopt, os, shutil
+import subprocess, requests, sys, getopt, os, shutil, packaging.version
 key = "0C263D8C22DCB085894899C3A3796383E9BF9DE0CBFB08C9BF2DEF2E84F29D74"
-repak_url = "https://github.com/natimerry/repak-rivals/releases/download/0.5.8/repak_cli-installer.sh"
+repak_url = "https://github.com/natimerry/repak-rivals/releases/download/v0.7.1/repak_cli-installer.sh"
 argumentList = sys.argv[1:]
 options = "hf:"
 
@@ -13,7 +13,12 @@ def initializeScript():
     else:
         formattedVersion = str(result).split(" ")[1].split("\\n")[0]
         print("Repak installed. Version: " + formattedVersion)
-        main()
+        if packaging.version.Version(str(formattedVersion)) < packaging.version.Version("0.7.1"):
+            print("Repak version is outdated. Updating repak...")
+            installRepak()
+            main()
+        else:
+            main()
 
 def main():
     try:
