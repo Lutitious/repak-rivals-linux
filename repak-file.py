@@ -81,7 +81,7 @@ def main():
         arguments, values = getopt.getopt(argumentList, options)
         for currentArgument, currentValue in arguments:
             if currentArgument in ("-h"):
-                print("Usage: repak-file.py [-f <file> | -u <file/dir> ...]")
+                print("Usage: repak-file.py [-f <file> | -u <file>]")
             elif currentArgument in ("-f"):
                 print("File name: " + currentValue)
                 fileName = currentValue
