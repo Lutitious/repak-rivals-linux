@@ -4,7 +4,7 @@ import subprocess, requests, sys, getopt, os, shutil, packaging.version, re
 key = "0C263D8C22DCB085894899C3A3796383E9BF9DE0CBFB08C9BF2DEF2E84F29D74"
 repak_url = "https://github.com/natimerry/repak-rivals/releases/download/v0.7.1/repak_cli-installer.sh"
 argumentList = sys.argv[1:]
-options = "hfu"
+options = "huf:"
 
 def get_new_name(folder_name):
     lower_name = folder_name.lower()
